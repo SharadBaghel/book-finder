@@ -1,38 +1,134 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+footer {
+  background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
   color: white;
+  padding: 3rem 1rem;
+  border-radius: 1.5rem 1.5rem 0 0;
+  box-shadow: 0 -10px 30px rgba(236, 72, 153, 0.4);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+  overflow: hidden;
 }
 
-.App-link {
-  color: #61dafb;
+/* Subtle layered glass effect overlays */
+footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(255,255,255,0.2), transparent 50%), 
+              radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.15), transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+  border-radius: 1.5rem 1.5rem 0 0;
+  backdrop-filter: blur(12px);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Content above overlays */
+footer > * {
+  position: relative;
+  z-index: 1;
+}
+
+footer h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+footer p {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+footer form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+footer input[type="text"],
+footer input[type="email"],
+footer textarea {
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.3);
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: inset 0 0 10px rgb(255 255 255 / 0.35);
+}
+
+footer input[type="text"]::placeholder,
+footer input[type="email"]::placeholder,
+footer textarea::placeholder {
+  color: #f9fafb;
+  opacity: 0.85;
+  font-weight: 400;
+}
+
+footer input[type="text"]:focus,
+footer input[type="email"]:focus,
+footer textarea:focus {
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow: 0 0 15px 3px rgba(236, 72, 153, 0.7);
+}
+
+footer textarea {
+  resize: none;
+  min-height: 110px;
+  font-family: inherit;
+}
+
+footer button[type="submit"] {
+  grid-column: 1 / -1;
+  padding: 0.85rem 2rem;
+  background: #ec4899;
+  font-weight: 700;
+  font-size: 1.125rem;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  box-shadow: 0 4px 14px rgb(236 72 153 / 0.6);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+footer button[type="submit"]:hover {
+  background: #db2777;
+  box-shadow: 0 6px 20px rgb(219 39 119 / 0.75);
+}
+
+footer p.mt-8 {
+  margin-top: 3rem;
+  font-size: 0.875rem;
+  opacity: 0.7;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  user-select: none;
+  text-shadow: none;
+}
+.header-underline {
+  width: 60px;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(to right, #3b82f6, #9333ea, #ec4899);
+  animation: underline-slide 3s infinite alternate;
+}
+
+@keyframes underline-slide {
+  0% {
+    width: 40px;
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    width: 80px;
   }
 }
